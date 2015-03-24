@@ -45,6 +45,9 @@
 // ################ END MANUAL SETTINGS ##########################
 
 #define FAN_BOARD_PIN ORIG_FAN_PIN
+#define X_MAX_PIN ORIG_X_MIN_PIN
+#define Y_MAX_PIN ORIG_Y_MIN_PIN
+#define Z_MAX_PIN ORIG_Z_MIN_PIN
 
 //#define EXTERNALSERIAL  use Arduino serial library instead of build in. Requires more ram, has only 63 byte input buffer.
 // Uncomment the following line if you are using arduino compatible firmware made for Arduino version earlier then 1.0
@@ -129,39 +132,39 @@
 
 #define ENDSTOP_PULLUP_X_MIN true
 #define ENDSTOP_X_MIN_INVERTING false
-#define MIN_HARDWARE_ENDSTOP_X true
+#define MIN_HARDWARE_ENDSTOP_X false
 #define ENDSTOP_PULLUP_Y_MIN true
-#define ENDSTOP_Y_MIN_INVERTING true
-#define MIN_HARDWARE_ENDSTOP_Y true
+#define ENDSTOP_Y_MIN_INVERTING false
+#define MIN_HARDWARE_ENDSTOP_Y false
 #define ENDSTOP_PULLUP_Z_MIN true
 #define ENDSTOP_Z_MIN_INVERTING false
-#define MIN_HARDWARE_ENDSTOP_Z true
+#define MIN_HARDWARE_ENDSTOP_Z false
 #define ENDSTOP_PULLUP_X_MAX true
 #define ENDSTOP_X_MAX_INVERTING false
-#define MAX_HARDWARE_ENDSTOP_X false
+#define MAX_HARDWARE_ENDSTOP_X true
 #define ENDSTOP_PULLUP_Y_MAX true
 #define ENDSTOP_Y_MAX_INVERTING false
-#define MAX_HARDWARE_ENDSTOP_Y false
+#define MAX_HARDWARE_ENDSTOP_Y true
 #define ENDSTOP_PULLUP_Z_MAX true
 #define ENDSTOP_Z_MAX_INVERTING false
-#define MAX_HARDWARE_ENDSTOP_Z false
+#define MAX_HARDWARE_ENDSTOP_Z true
 #define max_software_endstop_r true
 
-#define min_software_endstop_x false
-#define min_software_endstop_y false
-#define min_software_endstop_z false
-#define max_software_endstop_x true
-#define max_software_endstop_y true
-#define max_software_endstop_z true
-#define ENDSTOP_X_BACK_MOVE 5
-#define ENDSTOP_Y_BACK_MOVE 5
-#define ENDSTOP_Z_BACK_MOVE 2
+#define min_software_endstop_x true
+#define min_software_endstop_y true
+#define min_software_endstop_z true
+#define max_software_endstop_x false
+#define max_software_endstop_y false
+#define max_software_endstop_z false
+#define ENDSTOP_X_BACK_MOVE 10
+#define ENDSTOP_Y_BACK_MOVE 10
+#define ENDSTOP_Z_BACK_MOVE 10
 #define ENDSTOP_X_RETEST_REDUCTION_FACTOR 3
 #define ENDSTOP_Y_RETEST_REDUCTION_FACTOR 3
 #define ENDSTOP_Z_RETEST_REDUCTION_FACTOR 3
 #define ENDSTOP_X_BACK_ON_HOME 1
 #define ENDSTOP_Y_BACK_ON_HOME 1
-#define ENDSTOP_Z_BACK_ON_HOME 0
+#define ENDSTOP_Z_BACK_ON_HOME 1
 #define ALWAYS_CHECK_ENDSTOPS 1
 
 // ################# XYZ movements ###################
@@ -173,9 +176,9 @@
 #define DISABLE_Y 0
 #define DISABLE_Z 0
 #define DISABLE_E 0
-#define INVERT_X_DIR 0
-#define INVERT_Y_DIR 0
-#define INVERT_Z_DIR 0
+#define INVERT_X_DIR 1
+#define INVERT_Y_DIR 1
+#define INVERT_Z_DIR 1
 #define X_HOME_DIR -1
 #define Y_HOME_DIR -1
 #define Z_HOME_DIR 1
@@ -219,12 +222,12 @@
 #define MAX_DELTA_SEGMENTS_PER_LINE 24
 #define STEPPER_INACTIVE_TIME 360L
 #define MAX_INACTIVE_TIME 0L
-#define MAX_FEEDRATE_X 200
-#define MAX_FEEDRATE_Y 200
-#define MAX_FEEDRATE_Z 2
-#define HOMING_FEEDRATE_X 40
-#define HOMING_FEEDRATE_Y 40
-#define HOMING_FEEDRATE_Z 2
+#define MAX_FEEDRATE_X 4000
+#define MAX_FEEDRATE_Y 4000
+#define MAX_FEEDRATE_Z 4000
+#define HOMING_FEEDRATE_X 2000
+#define HOMING_FEEDRATE_Y 2000
+#define HOMING_FEEDRATE_Z 2000
 #define HOMING_ORDER HOME_ORDER_ZXY
 #define ENABLE_BACKLASH_COMPENSATION 0
 #define X_BACKLASH 0
@@ -372,12 +375,12 @@ Values must be in range 1..255
     "xStepsPerMM": 100,
     "yStepsPerMM": 100,
     "zStepsPerMM": 100,
-    "xInvert": 0,
+    "xInvert": "1",
     "xInvertEnable": 0,
     "eepromMode": 1,
-    "yInvert": 0,
+    "yInvert": "1",
     "yInvertEnable": 0,
-    "zInvert": 0,
+    "zInvert": "1",
     "zInvertEnable": 0,
     "extruder": [
         {
@@ -423,24 +426,24 @@ Values must be in range 1..255
     ],
     "uiLanguage": 0,
     "uiController": 0,
-    "xMinEndstop": 2,
-    "yMinEndstop": 1,
-    "zMinEndstop": 2,
-    "xMaxEndstop": 0,
-    "yMaxEndstop": 0,
-    "zMaxEndstop": 0,
+    "xMinEndstop": 0,
+    "yMinEndstop": 0,
+    "zMinEndstop": 0,
+    "xMaxEndstop": 2,
+    "yMaxEndstop": 2,
+    "zMaxEndstop": 2,
     "motherboard": 34,
     "driveSystem": 3,
-    "xMaxSpeed": 200,
-    "xHomingSpeed": 40,
+    "xMaxSpeed": 4000,
+    "xHomingSpeed": 2000,
     "xTravelAcceleration": 100,
     "xPrintAcceleration": 1000,
-    "yMaxSpeed": 200,
-    "yHomingSpeed": 40,
+    "yMaxSpeed": 4000,
+    "yHomingSpeed": 2000,
     "yTravelAcceleration": 100,
     "yPrintAcceleration": 1000,
-    "zMaxSpeed": 2,
-    "zHomingSpeed": 2,
+    "zMaxSpeed": 4000,
+    "zHomingSpeed": 2000,
     "zTravelAcceleration": 100,
     "zPrintAcceleration": 100,
     "xMotor": {
@@ -483,7 +486,7 @@ Values must be in range 1..255
     "zHomeDir": 1,
     "xEndstopBack": 1,
     "yEndstopBack": 1,
-    "zEndstopBack": 0,
+    "zEndstopBack": 1,
     "deltaSegmentsPerSecondPrint": 180,
     "deltaSegmentsPerSecondTravel": 70,
     "deltaDiagonalRod": 289,
@@ -674,18 +677,18 @@ Values must be in range 1..255
     "sdCardDetectPin": -1,
     "sdCardDetectInverted": "0",
     "uiStartScreenDelay": 1000,
-    "xEndstopBackMove": 5,
-    "yEndstopBackMove": 5,
-    "zEndstopBackMove": 2,
+    "xEndstopBackMove": 10,
+    "yEndstopBackMove": 10,
+    "zEndstopBackMove": 10,
     "xEndstopRetestFactor": 3,
     "yEndstopRetestFactor": 3,
     "zEndstopRetestFactor": 3,
     "xMinPin": "ORIG_X_MIN_PIN",
     "yMinPin": "ORIG_Y_MIN_PIN",
     "zMinPin": "ORIG_Z_MIN_PIN",
-    "xMaxPin": "ORIG_X_MAX_PIN",
-    "yMaxPin": "ORIG_Y_MAX_PIN",
-    "zMaxPin": "ORIG_Z_MAX_PIN",
+    "xMaxPin": "ORIG_X_MIN_PIN",
+    "yMaxPin": "ORIG_Y_MIN_PIN",
+    "zMaxPin": "ORIG_Z_MIN_PIN",
     "deltaHomeOnPower": "0",
     "fanBoardPin": "ORIG_FAN_PIN",
     "heaterPWMSpeed": 0,
