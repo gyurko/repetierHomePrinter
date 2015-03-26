@@ -424,7 +424,7 @@ STEPPER_CURRENT_CONTROL
 #define SDSUPPORT true
 #define SDCARDDETECTINVERTED false
 #define SDCARDDETECT 49
-#define ORIG_FAN_PIN           4
+#define ORIG_FAN_PIN           9
 #define ORIG_FAN2_PIN          5
 #define LIGHT_PIN         6
 #define BEEPER_PIN        33  // Activate beeper on extension shield
