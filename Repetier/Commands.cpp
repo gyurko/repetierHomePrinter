@@ -68,6 +68,19 @@ void Commands::checkForPeriodicalActions()
     if(!executePeriodical) return;
     executePeriodical=0;
     Extruder::manageTemperatures();
+
+    // turn on the hotend and extruder fans at 30 and off once we get below 25
+    if(Extruder::current->tempControl.currentTemperatureC >= 30)
+    {
+    	//setFanSpeed(255, 0);
+    	WRITE(16, 1);			// turn on fan on pin 16 (h-end4 on azteeq extender board)
+    }
+    else if(Extruder::current->tempControl.currentTemperatureC < 25)
+    {
+    	//setFanSpeed(255, 0);
+    	WRITE(16, 0);			// turn off fan on pin 16 (h-end4 on azteeq extender board)
+    }
+
     if(--counter250ms==0)
     {
         if(manageMonitor<=1+NUM_EXTRUDER)
